@@ -38,7 +38,7 @@ axios.get(urlString)
             output += `
                 <div class="col-md-3">
                     <div class="well text-center">
-                        <img src="http://image.tmdb.org/t/p/w185/${movie.poster_path}">
+                        <img src="http://image.tmdb.org/t/p/w185/${movie.poster_path}" onerror=this.src="https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png">
                         <h5>${movie.title}</h5>
                          <a onclick="window.app.movieSelected({id:${movie.id}})" class="btn btn-primary" href="#">Movie Details</a>
                     </div>
