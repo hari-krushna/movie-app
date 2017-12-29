@@ -80,22 +80,7 @@ class MovieDetails extends Component {
     return (
       <div className="container">
         <div className="row">
-          <nav className="navbar navbar-default">
-            <div className="container">
-              <div className="navbar-header">
-                <a className="navbar-brand" href="index.html">MovieInfo</a>
-              </div>
-            </div>
-          </nav>
-
-
-
-
-          <div className="container">
             <div id="movie" className="well"></div>
-          </div>
-
-
         </div>
       </div>
 

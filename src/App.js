@@ -103,26 +103,16 @@ axios.get(urlString)
     return (
       <div className="container">
         <div className="row">
-          <nav className="navbar navbar-default">
-            <div className="container">
-              <div className="navbar-header">
-                <a className="navbar-brand" href="index.html">MovieInfo</a>
-              </div>
-            </div>
-          </nav>
-
-          <div className="jumbotron">
+          <div className="About jumbotron">
             <h3 className="text-center">Search For Any Movie</h3>
             <form id="searchForm">
               <input type="text" onChange={this.onChangeSearchText} className="form-control" id="searchText" placeholder="Search Movies..." />
             </form>
           </div>
 
-
           <div className="container">
             <div id="movies" className="row"></div>
           </div>
-
 
         </div>
       </div>

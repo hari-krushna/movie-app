@@ -1,26 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -40,4 +17,91 @@
   #movies .col-md-3 img{
     height:240px;
   }
+}
+
+
+.Footer {
+  list-style-type: none;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  z-index: 500;
+  background: #bafffc;
+  background: -webkit-linear-gradient(to right, #bafffc, #f1f1f1);
+  background: linear-gradient(to right, #bafffc, #f1f1f1);
+  display: inline-flex;
+  grid-template-columns: 10% 30% 50% 10%;
+}
+
+.Footer .footer-2 {
+  text-align: center;
+  align-items: center;
+}
+/* @media (max-width: 40em) {
+  #myImage {
+  visibility:hidden;
+  }
+.footer-2 div{
+    margin-top: -300px;
+  }
+  } */
+  
+@media(min-width:960px){
+.Footer div {
+  text-align: center;
+  display: grid;
+}
+.Footer .footer-1 img {
+  margin-left: 40px;
+	margin-right: auto;
+	
+ }
+  .footer-2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+}
+
+
+.Footer img {
+  padding: 15px 0px;
+  width: 100%
+}
+
+.Footer a {
+  text-decoration: none;
+  color: black;
+  line-height: 10px;
+  font-size: 18px;
+}
+
+.Footer h3 {
+  font-size: 30px;
+  line-height: 10px;
+}
+
+
+.HeaderBackground{
+  background-image: url("https://media.giphy.com/media/a3IGFA4BKrE40/giphy.gif");
+}
+
+.NoPadding{
+     padding-top: 0px; 
+     padding-bottom: 0px;
+     background: #EEEEEE;
+     width: 100%;
+}
+
+
+.About {
+  background-image: url('./Images/2.gif');
+  background-repeat: no-repeat;
+  background-size: 1200px;
+  background-position: bottom;
+}
+.About h3{
+color: aqua;
 }
