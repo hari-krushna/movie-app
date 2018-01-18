@@ -23,17 +23,24 @@ class MovieDetails extends Component {
       axios.get(urlString)
         .then((response) => {
           console.log(response.data);
-          let movie = response.data;
-          let generations = "", prod_companies="";
-          for(var i=0; i<  movie.genres.length ; i++){
-            generations = generations+ movie.genres[i].name +", ";
+          var movie = response.data;
+          var generations_api = "", prod_companies_api = "", spoken_languages_api = "";
+          var generations = "", prod_companies = "", spoken_languages = "";
+          for (var i = 0; i < movie.genres.length; i++) {
+            generations_api = generations_api + movie.genres[i].name + ' , ';
           }
-          for(var j=0; j< movie.production_companies.length ; j++){
-            prod_companies = prod_companies+ movie.production_companies[j].name +", ";
+          generations = generations_api.slice(0, -2);
+
+          for (var j = 0; j < movie.production_companies.length; j++) {
+            prod_companies_api = prod_companies_api + movie.production_companies[j].name + ' , ';
           }
-         
-          
-                let output =`
+          prod_companies = prod_companies_api.slice(0, -2);
+
+          for (var k = 0; k < movie.spoken_languages.length; k++) {
+            spoken_languages_api = spoken_languages_api + movie.spoken_languages[k].name + ' , ';
+          }
+          spoken_languages = spoken_languages_api.slice(0, -2);
+          let output = `
         <div class="row">
           <div class="col-md-4">
           <img src="http://image.tmdb.org/t/p/w185/${movie.poster_path}" style="height:300px" onerror=this.src="https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png">
@@ -47,6 +54,7 @@ class MovieDetails extends Component {
               <li class="list-group-item"><strong>Rated:</strong> ${movie.vote_average}, <strong>Vote Count:</strong> ${movie.vote_count}</li>
               <li class="list-group-item"><strong>Popularity:</strong> ${movie.popularity}</li>
                <li class="list-group-item"><strong>Production Companies:</strong> ${prod_companies}</li>
+               <li class="list-group-item"><strong>Spoken languages:</strong> ${spoken_languages}</li>
                <li class="list-group-item"><strong>Budget:</strong> ${movie.budget}</li>
               <li class="list-group-item"><strong>Revenue:</strong> ${movie.revenue}</li>
             </ul>
@@ -63,7 +71,7 @@ class MovieDetails extends Component {
         </div>
       `;
 
-      $('#movie').html(output);
+          $('#movie').html(output);
 
         })
         .catch((err) => {
@@ -71,16 +79,16 @@ class MovieDetails extends Component {
         });
     });
   }
-  SearchMovies(){
+  SearchMovies() {
     $(document).ready(() => {
-         ReactDOM.render(<App />, document.getElementById('root'));
-      });
+      ReactDOM.render(<App />, document.getElementById('root'));
+    });
   }
   render() {
     return (
       <div className="container">
         <div className="row">
-            <div id="movie" className="well"></div>
+          <div id="movie" className="well"></div>
         </div>
       </div>
 
