@@ -22,7 +22,7 @@ class MovieDetails extends Component {
 
       axios.get(urlString)
         .then((response) => {
-          console.log(response.data);
+          //console.log(response.data);
           var movie = response.data;
           var generations_api = "", prod_companies_api = "", spoken_languages_api = "";
           var generations = "", prod_companies = "", spoken_languages = "";

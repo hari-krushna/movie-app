@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-import $ from 'jquery'; 
+import $ from 'jquery';
 import axios from 'axios';
 import MovieDetails from './MovieDetails';
 
@@ -25,41 +25,47 @@ class App extends Component {
   //    })
   //   });
   // }
-  
-  onChangeSearchText(event){
-    if(event != null){
-       let searchText = $('#searchText').val();
-      if(event.target){
-          this.getMovies(searchText);
-       }else{
+
+  onChangeSearchText(event) {
+    if (event != null) {
+      let searchText = $('#searchText').val();
+      if (event.target) {
+        this.getMovies(searchText);
+      } else {
         this.getMovies(null);
-       }
-     }
+      }
+    }
   }
-  getMovies(searchText){
-    var urlString ='https://api.themoviedb.org/3/search/movie?api_key=fa155f635119344d33fcb84fb807649b&query='+searchText;
-axios.get(urlString)
-    .then((response) => {
-       // console.log(response);
-        let movies = response.data.results;
-        let output = '';
-        $.each(movies, (index, movie) =>{
+  getMovies(searchText) {
+    var urlString = 'https://api.themoviedb.org/3/search/movie?api_key=fa155f635119344d33fcb84fb807649b&query=' + searchText;
+    axios.get(urlString)
+      .then((response) => {
+        // console.log(response);
+        if ($.isEmptyObject(response.data.results)) {
+          var output = `
+         <div class="well">No movie(s) found. Please spell correctly!</div>`;
+          $('#movies').html(output);
+        }
+        else {
+          let movies = response.data.results;
+          let output = '';
+          $.each(movies, (index, movie) => {
             output += `
-                <div class="col-md-3">
-                    <div class="well text-center">
-                        <img src="http://image.tmdb.org/t/p/w185/${movie.poster_path}" onerror=this.src="https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png">
-                        <h5>${movie.title}</h5>
-                         <a onclick="window.app.movieSelected({id:${movie.id}})" class="btn btn-primary" href="#">Movie Details</a>
-                    </div>
-                </div>
-        `;
-        });
-    
-    $('#movies').html(output);
-    })
-    .catch((err) =>{
-       console.log(err);
-    });
+                  <div class="col-md-3">  
+                      <div class="well text-center">
+                          <img src="http://image.tmdb.org/t/p/w185/${movie.poster_path}" onerror=this.src="https://upload.wikimedia.org/wikipedia/en/d/d1/Image_not_available.png">
+                          <h5>${movie.title}</h5>
+                           <a onclick="window.app.movieSelected({id:${movie.id}})" class="btn btn-primary" href="#">Movie Details</a>
+                      </div>
+                  </div>
+          `;
+          });
+          $('#movies').html(output);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
 
     // $.ajax({
@@ -90,14 +96,14 @@ axios.get(urlString)
 
 
   }
- 
+
   movieSelected(movie) {
     $(document).ready(() => {
-    let myMovieId = movie.id;
-       ReactDOM.render(<MovieDetails movieId={myMovieId}/>, document.getElementById('root'));
+      let myMovieId = movie.id;
+      ReactDOM.render(<MovieDetails movieId={myMovieId} />, document.getElementById('root'));
     });
   }
-  
+
 
   render() {
     return (
