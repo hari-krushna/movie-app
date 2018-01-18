@@ -3,7 +3,7 @@
 
 ## Search Page
 
-:simple_smile: This app will make a request to the **[themoviedb.org](https://www.themoviedb.org/)** search api and display the movie list based on the user input along with a link to view basic details of the movie like year, budget,status and so on. 
+:smiley:This app will make a request to the **[themoviedb.org](https://www.themoviedb.org/)** search api and display the movie list based on the user input along with a link to view basic details of the movie like year, budget,status and so on. 
 
 ## Movie Detail Page
 
