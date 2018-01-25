@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
+import '../../css/custom-style.css';
 import $ from 'jquery';
 import axios from 'axios';
 import MovieDetails from './MovieDetails';
 
-class App extends Component {
+class Movie extends Component {
   constructor() {
     super();
     window.app = this;
@@ -127,4 +127,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Movie;

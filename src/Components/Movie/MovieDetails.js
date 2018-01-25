@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
+import '../../css/custom-style.css';
 import $ from 'jquery';
 import axios from 'axios';
-import App from './App';
+import Movie from './Movie';
 
 class MovieDetails extends Component {
   constructor() {
@@ -81,7 +81,7 @@ class MovieDetails extends Component {
   }
   SearchMovies() {
     $(document).ready(() => {
-      ReactDOM.render(<App />, document.getElementById('root'));
+      ReactDOM.render(<Movie />, document.getElementById('root'));
     });
   }
   render() {
