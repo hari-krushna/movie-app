@@ -38,6 +38,12 @@ class Movie extends Component {
   }
   getMovies(searchText) {
     var urlString = 'https://api.themoviedb.org/3/search/movie?api_key=fa155f635119344d33fcb84fb807649b&query=' + searchText;
+    
+    if(searchText === null || searchText === ""){
+      let output = '';
+      $('#movies').html(output);
+    }
+    else{
     axios.get(urlString)
       .then((response) => {
         // console.log(response);
@@ -57,8 +63,7 @@ class Movie extends Component {
                           <h5>${movie.title}</h5>
                            <a onclick="window.app.movieSelected({id:${movie.id}})" class="btn btn-primary" href="#">Movie Details</a>
                       </div>
-                  </div>
-          `;
+                  </div>`;
           });
           $('#movies').html(output);
         }
@@ -67,9 +72,11 @@ class Movie extends Component {
         console.log(err);
       });
 
-
-    // $.ajax({
-    //   url: urlString ,
+    }
+    
+      // $.ajax({
+    
+      //   url: urlString ,
     //   dataType: 'json',
     //   cache: false,
     //   success: function(response) {
