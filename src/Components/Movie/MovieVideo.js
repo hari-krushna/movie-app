@@ -49,10 +49,10 @@ class MovieVideo extends Component {
                     let output = '';
                     $.each(videos, (index, video) => {
                         output += `
-                        <div class="col-md-12">  
+                        <div class="col-md-12 well">  
                             <h1 class="text-center">${video.name}</h1>
                             <div class="intrinsic-container intrinsic-container-16x9">
-                            <iframe title="YouTube video player" class="well center-block responsive"
+                            <iframe title="YouTube video player" class="center-block responsive"
                              width="500" height="300" src="//www.youtube.com/embed//${video.key}" frameborder="0" 
                              allowfullscreen allowtransparency="true" data-ratio="16:9"></iframe>
                               </div>
