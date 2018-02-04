@@ -125,3 +125,67 @@
       visibility: hidden;
     }
   }
+
+#notfoundimg{
+  height: '400px';
+   width: '400px';
+   margin: 0 auto;
+}
+
+#btnHome , #btnMovieDetails{
+  padding: 4px;
+}
+
+
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+ 
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+  padding-bottom: 56.25%;
+}
+ 
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+  padding-bottom: 75%;
+}
+ 
+.intrinsic-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#notfoundimg .center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+
+
+#btn-imdb:hover {
+  background-color: #ffffff!important;
+  border-color: #F27F33!important;
+  color: #F27F33!important;
+  font-size: 150%;
+ }
+
+ #btn-search:hover {
+  background-color: #ffffff!important;
+  border-color: #021860!important;
+  color: #021860!important;
+  font-size: 150%;
+ }
+
+ #btn-trailer:hover {
+  background-color: #ffffff!important;
+  border-color: #479C48!important;
+  color: #479C48!important;
+  font-size: 150%;
+ }
